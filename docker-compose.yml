@@ -59,6 +59,14 @@ services:
       - 1337:1337
     links:
       - kong:kong
+      - kong-database:kong-database
     container_name: konga
     environment:
+      - DB_ADAPTER=postgres
+      - DB_HOST=kong-database
+      - DB_PORT=5432
+      - DB_USER=kong
+      - DB_PASSWORD=kong
+      - DB_DATABASE=konga
       - NODE_ENV=production
+
