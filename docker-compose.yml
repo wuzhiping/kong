@@ -14,7 +14,7 @@ services:
     volumes:
       - "./postgresql/data:/var/lib/postgresql/data"
   kong-migrations:
-    image: kong
+    image: shawoo/kong
     environment:
       - KONG_DATABASE=postgres
       - KONG_PG_HOST=kong-database
@@ -26,7 +26,7 @@ services:
       - kong-database
 
   kong:
-    image: kong
+    image: shawoo/kong
     container_name: kong
     hostname: kong
     environment:
